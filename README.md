@@ -65,8 +65,9 @@ Install dependencies:pip install torch torchvision pillow numpy streamlit fastap
 Ensure HumanEmotions.pth (trained model) is in the root directory. If not, train the model using the training script (see Usage).
 (Optional) Download the FER-2013 dataset from Kaggle and extract to data/.
 
-Usage
-**Training the Model**
+## Usage
+
+## **Training the Model**
 
 Ensure the FER-2013 dataset is in data/train and data/test.
 Run the training script HumanSentiment.ipynb
@@ -74,7 +75,8 @@ Run the training script HumanSentiment.ipynb
 The trained model is saved as HumanEmotions.pth.
 
 ![Alt text](confusionmatrix.png)
-**Streamlit App**
+
+## **Streamlit App**
 
 Run the Streamlit app:streamlit run humanemotions.py
 
@@ -88,7 +90,7 @@ Sample Output:
 Predicted Emotion: Happy
 Confidence Scores: { "happy": 0.85, "neutral": 0.10, ... }
 
-**FastAPI**
+## **FastAPI**
 
 Run the FastAPI app:uvicorn fer_fastapi_app:app --reload
 
@@ -120,7 +122,8 @@ Sample Response:
 }
 }
 
-**Model Architecture**
+## **Model Architecture**
+
 The custom FER_CNN model is designed for grayscale 48x48 images:<br>
 
 Input: 1 channel, 48x48 pixels<br>
@@ -137,7 +140,7 @@ Linear(256→7)<br>
 
 Output: 7 emotion classes<br>
 
-Performance
+## Performance
 
 Dataset: FER-2013 (~28k train, ~7k test images)<br>
 Metrics: (Note: Current metrics show underfitting; re-training recommended)<br>
@@ -147,7 +150,7 @@ Val Loss: ~1.0567 (target: <1.0)<br>
 
 Improvements: Currenty the model trained on 20 epochs, Increase epochs to 20-50.
 
-Deployment
+## Deployment
 
 Local: Run Streamlit (streamlit run humanemotions.py) or FastAPI (uvicorn HumanEmotions:app).<br>
 Cloud: Deploy FastAPI to AWS, Heroku, or Render for production. Use Docker:FROM python:3.10<br>
@@ -158,7 +161,7 @@ CMD ["uvicorn", "HumanEmotions:app", "--host", "0.0.0.0", "--port", "8000"]<br>
 
 Streamlit Cloud: Push to GitHub and deploy humanemotions.py via Streamlit Cloud.
 
-Future Improvements
+## Future Improvements
 
 Model: Switch to ResNet-18 for higher accuracy (70-75%).<br>
 Face Detection: Add OpenCV Haar cascades for robust face cropping.<br>
@@ -166,7 +169,8 @@ Real-Time: Integrate webcam support in Streamlit using streamlit-webrtc.<br>
 Batch Processing: Extend FastAPI to handle multiple image uploads.<br>
 Hyperparameter Tuning: Optimize learning rate, batch size, and augmentations.<br>
 
-Contributing
+## Contributing
+
 Contributions are welcome! Please:
 
 Fork the repository.<br>
@@ -175,7 +179,8 @@ Commit changes (git commit -m 'Add YourFeature').<br>
 Push to the branch (git push origin feature/YourFeature).<br>
 Open a Pull Request.<br>
 
-License<br>
+## License<br>
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 Contact
 

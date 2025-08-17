@@ -82,6 +82,8 @@ Upload an image (JPG/JPEG) to predict the emotion and view confidence scores.
 
 Sample Output:
 
+![Alt text](streamlit.jpg)
+
 Predicted Emotion: Happy
 Confidence Scores: { "happy": 0.85, "neutral": 0.10, ... }
 

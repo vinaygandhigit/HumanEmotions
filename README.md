@@ -22,8 +22,6 @@ A custom Convolutional Neural Network (CNN) for facial expression recognition on
 - [Deployment](#deployment)
 - [Future Improvements](#future-improvements)
 - [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Overview
 
@@ -178,11 +176,6 @@ Create a feature branch (git checkout -b feature/YourFeature).<br>
 Commit changes (git commit -m 'Add YourFeature').<br>
 Push to the branch (git push origin feature/YourFeature).<br>
 Open a Pull Request.<br>
-
-## License<br>
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-Contact
 
 Author: Vinay Gandhi<br>
 GitHub: vinaygandhigit

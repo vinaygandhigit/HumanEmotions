@@ -66,14 +66,15 @@ Ensure HumanEmotions.pth (trained model) is in the root directory. If not, train
 (Optional) Download the FER-2013 dataset from Kaggle and extract to data/.
 
 Usage
-Training the Model
+**Training the Model**
 
 Ensure the FER-2013 dataset is in data/train and data/test.
 Run the training script HumanSentiment.ipynb
 
 The trained model is saved as HumanEmotions.pth.
 
-Streamlit App
+![Alt text](confusionmatrix.png)
+**Streamlit App**
 
 Run the Streamlit app:streamlit run humanemotions.py
 
@@ -87,7 +88,7 @@ Sample Output:
 Predicted Emotion: Happy
 Confidence Scores: { "happy": 0.85, "neutral": 0.10, ... }
 
-FastAPI
+**FastAPI**
 
 Run the FastAPI app:uvicorn fer_fastapi_app:app --reload
 
@@ -96,6 +97,8 @@ Use the /predict endpoint to upload an image and get JSON results.
 
 Sample cURL Command:
 curl -X POST "http://127.0.0.1:8000/predictEmotions" -F "file=@path/to/image.jpg"
+
+![Alt text](postman.jpg)
 
 Sample Python Request:
 import requests
@@ -117,64 +120,64 @@ Sample Response:
 }
 }
 
-Model Architecture
-The custom FER_CNN model is designed for grayscale 48x48 images:
+**Model Architecture**
+The custom FER_CNN model is designed for grayscale 48x48 images:<br>
 
-Input: 1 channel, 48x48 pixels
-Conv Layers:
-Conv2d(1→64, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)
-Conv2d(64→128, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)
-Conv2d(128→256, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)
-Conv2d(256→512, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)
+Input: 1 channel, 48x48 pixels<br>
+Conv Layers: <br>
+Conv2d(1→64, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)<br>
+Conv2d(64→128, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)<br>
+Conv2d(128→256, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)<br>
+Conv2d(256→512, 3x3, padding=1) → ReLU → BatchNorm → MaxPool(2x2)<br>
 
-Fully Connected Layers:
-Linear(51233→512) → ReLU → Dropout(0.5)
-Linear(512→256) → ReLU → Dropout(0.5)
-Linear(256→7)
+Fully Connected Layers:<br>
+Linear(51233→512) → ReLU → Dropout(0.5)<br>
+Linear(512→256) → ReLU → Dropout(0.5)<br>
+Linear(256→7)<br>
 
-Output: 7 emotion classes
+Output: 7 emotion classes<br>
 
 Performance
 
-Dataset: FER-2013 (~28k train, ~7k test images)
-Metrics: (Note: Current metrics show underfitting; re-training recommended)
-Test Accuracy: ~60.29% (target: >60%)
-Train Loss: ~1.0869 (target: <1.0)
-Val Loss: ~1.0567 (target: <1.0)
+Dataset: FER-2013 (~28k train, ~7k test images)<br>
+Metrics: (Note: Current metrics show underfitting; re-training recommended)<br>
+Test Accuracy: ~60.29% (target: >60%)<br>
+Train Loss: ~1.0869 (target: <1.0)<br>
+Val Loss: ~1.0567 (target: <1.0)<br>
 
 Improvements: Currenty the model trained on 20 epochs, Increase epochs to 20-50.
 
 Deployment
 
-Local: Run Streamlit (streamlit run humanemotions.py) or FastAPI (uvicorn HumanEmotions:app).
-Cloud: Deploy FastAPI to AWS, Heroku, or Render for production. Use Docker:FROM python:3.10
-WORKDIR /app
-COPY . .
-RUN pip install fastapi uvicorn torch torchvision pillow numpy
-CMD ["uvicorn", "HumanEmotions:app", "--host", "0.0.0.0", "--port", "8000"]
+Local: Run Streamlit (streamlit run humanemotions.py) or FastAPI (uvicorn HumanEmotions:app).<br>
+Cloud: Deploy FastAPI to AWS, Heroku, or Render for production. Use Docker:FROM python:3.10<br>
+WORKDIR /app<br>
+COPY . .<br>
+RUN pip install fastapi uvicorn torch torchvision pillow numpy<br>
+CMD ["uvicorn", "HumanEmotions:app", "--host", "0.0.0.0", "--port", "8000"]<br>
 
 Streamlit Cloud: Push to GitHub and deploy humanemotions.py via Streamlit Cloud.
 
 Future Improvements
 
-Model: Switch to ResNet-18 for higher accuracy (70-75%).
-Face Detection: Add OpenCV Haar cascades for robust face cropping.
-Real-Time: Integrate webcam support in Streamlit using streamlit-webrtc.
-Batch Processing: Extend FastAPI to handle multiple image uploads.
-Hyperparameter Tuning: Optimize learning rate, batch size, and augmentations.
+Model: Switch to ResNet-18 for higher accuracy (70-75%).<br>
+Face Detection: Add OpenCV Haar cascades for robust face cropping.<br>
+Real-Time: Integrate webcam support in Streamlit using streamlit-webrtc.<br>
+Batch Processing: Extend FastAPI to handle multiple image uploads.<br>
+Hyperparameter Tuning: Optimize learning rate, batch size, and augmentations.<br>
 
 Contributing
 Contributions are welcome! Please:
 
-Fork the repository.
-Create a feature branch (git checkout -b feature/YourFeature).
-Commit changes (git commit -m 'Add YourFeature').
-Push to the branch (git push origin feature/YourFeature).
-Open a Pull Request.
+Fork the repository.<br>
+Create a feature branch (git checkout -b feature/YourFeature).<br>
+Commit changes (git commit -m 'Add YourFeature').<br>
+Push to the branch (git push origin feature/YourFeature).<br>
+Open a Pull Request.<br>
 
-License
+License<br>
 This project is licensed under the MIT License - see the LICENSE file for details.
 Contact
 
-Author: Vinay Gandhi
+Author: Vinay Gandhi<br>
 GitHub: vinaygandhigit

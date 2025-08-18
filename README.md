@@ -5,7 +5,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.68+-green.svg)
 
-A custom Convolutional Neural Network (CNN) for facial expression recognition on the FER-2013 (kaggle) dataset, enabling emotion prediction (angry, disgust, fear, happy, neutral, sad, surprise) from image uploads. The project includes a training pipeline, a Streamlit web app for interactive predictions, and a FastAPI-based RESTful API for integration with diverse applications, leveraging 18+ years of IT integration expertise in HR and Telecom.
+A custom Convolutional Neural Network (CNN) for facial expression recognition on the FER-2013 (kaggle) dataset, enabling emotion prediction (angry, disgust, fear, happy, neutral, sad, surprise) from image uploads. The project includes a training pipeline, a Streamlit web app for interactive predictions, and a FastAPI-based RESTful API for integration with diverse applications
 
 ## Table of Contents
 
@@ -179,3 +179,4 @@ Open a Pull Request.<br>
 
 Author: Vinay Gandhi<br>
 GitHub: vinaygandhigit
+

@@ -67,12 +67,12 @@ Ensure HumanEmotions.pth (trained model) is in the root directory. If not, train
 
 ## **Training the Model**
 
-Ensure the FER-2013 dataset is in data/train and data/test.
+Ensure the FER-2013 dataset is in data/train and data/test. we trained model with 20 epochs
 Run the training script HumanSentiment.ipynb
 
-The trained model is saved as HumanEmotions.pth.
+The trained model is saved as HumanEmotions.pth. below is a confusion matrix after 20 epochs training
 
-![Alt text](confusionmatrix.png)
+<kbd>![Alt text](confusionmatrix.png)<kbd>
 
 ## **Streamlit App**
 
@@ -83,14 +83,14 @@ Upload an image (JPG/JPEG) to predict the emotion and view confidence scores.
 
 Sample Output:
 
-![Alt text](streamlit.jpg)
+<kbd>![Alt text](streamlit.jpg)<kbd>
 
 Predicted Emotion: Happy
 Confidence Scores: { "happy": 0.85, "neutral": 0.10, ... }
 
 ## **FastAPI**
 
-Run the FastAPI app:uvicorn fer_fastapi_app:app --reload
+Run the FastAPI app:uvicorn HumanEmotions:app --reload
 
 Open http://127.0.0.1:8000/docs for the Swagger UI.
 Use the /predict endpoint to upload an image and get JSON results.
@@ -98,7 +98,7 @@ Use the /predict endpoint to upload an image and get JSON results.
 Sample cURL Command:
 curl -X POST "http://127.0.0.1:8000/predictEmotions" -F "file=@path/to/image.jpg"
 
-![Alt text](postman.jpg)
+<kbd>![Alt text](postman.jpg)<kbd>
 
 Sample Python Request:
 import requests
@@ -179,4 +179,5 @@ Open a Pull Request.<br>
 
 Author: Vinay Gandhi<br>
 GitHub: vinaygandhigit
+
 
